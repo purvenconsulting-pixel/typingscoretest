@@ -21,7 +21,7 @@ export default function Footer() {
               The most accurate and reliable free typing speed test tool. Measure your WPM, improve accuracy, and track your progress over time.
             </p>
             <p className="text-sm text-gray-500 mt-3">
-              contact@typingscoretest.com
+              purvenconsulting@gmail.com
             </p>
           </div>
 
@@ -58,6 +58,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-slate-500 text-sm mt-2">
+            Part of the <a href="https://purvenhub.com" className="text-indigo-400 hover:text-indigo-300 underline">Purven Hub</a> family of free online tools. Built by Purven Consulting.
+          </p>
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} TypingScoreTest.com. All rights reserved.
           </p>

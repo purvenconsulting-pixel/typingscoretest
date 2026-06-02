@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import PurvenCrossLinks from "@/components/PurvenCrossLinks";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://typingscoretest.com'),
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://typingscoretest.com',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-8995675464812587',
+  },
 };
 
 export default function RootLayout({
@@ -62,6 +66,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
+        <PurvenCrossLinks />
         <Footer />
         <CookieConsent />
       </body>

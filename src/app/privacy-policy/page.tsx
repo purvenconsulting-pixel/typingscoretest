@@ -147,7 +147,7 @@ export default function PrivacyPolicyPage() {
             If you have questions about this Privacy Policy or our data practices, please contact us at:
           </p>
           <ul className="space-y-2">
-            <li><strong>Email:</strong> contact@typingscoretest.com</li>
+            <li><strong>Email:</strong> purvenconsulting@gmail.com</li>
             <li><strong>Website:</strong> <Link href="/" className="text-primary-600 hover:underline">typingscoretest.com</Link></li>
           </ul>
         </div>
