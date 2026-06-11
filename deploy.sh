@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# deploy.sh — Push local changes to typingscoretest.com
-# Usage: ./deploy.sh "commit message"
-# Or just: ./deploy.sh  (skips git commit, just rsyncs)
+# deploy.sh — Push static export to typingscoretest.com
+# Usage: ./deploy.sh "optional commit message"
+# Run from repo root. Only syncs static export files — source files excluded.
 
 set -e
 
@@ -23,22 +23,35 @@ if [ -n "$(git status --porcelain)" ]; then
   GIT_SSH_COMMAND="ssh -i $SSH_KEY -o StrictHostKeyChecking=no" git push origin main
   echo "✅ GitHub updated"
 else
-  echo "ℹ️  No local changes — skipping git commit"
-  GIT_SSH_COMMAND="ssh -i $SSH_KEY -o StrictHostKeyChecking=no" git push origin main 2>/dev/null || true
+  echo "ℹ️  No local changes — only deploying to server"
 fi
 
-# rsync to server
-echo "📡 Syncing to server..."
+# rsync static files only — exclude all source/dev artifacts
+echo "📡 Syncing static files to server..."
 rsync -avz --delete \
   -e "ssh -i $SSH_KEY -p $REMOTE_PORT -o StrictHostKeyChecking=no" \
   ./ \
   ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH} \
   --exclude='.git' \
   --exclude='.gitignore' \
+  --exclude='.eslintrc.json' \
+  --exclude='.abacus.donotdelete' \
   --exclude='deploy.sh' \
   --exclude='DEPLOY.md' \
+  --exclude='README.md' \
+  --exclude='ASSESSMENT.*' \
+  --exclude='package.json' \
+  --exclude='package-lock.json' \
+  --exclude='next.config.*' \
+  --exclude='tailwind.config.*' \
+  --exclude='tsconfig.json' \
+  --exclude='postcss.config.*' \
+  --exclude='src/' \
+  --exclude='public/' \
+  --exclude='dist/' \
+  --exclude='node_modules/' \
   --exclude='*.log' \
-  --exclude='node_modules' \
+  --exclude='rate_limits.json' \
   --exclude='public_html/'
 
 echo ""
