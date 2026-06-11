@@ -3,7 +3,7 @@
 ## Overview
 
 **Live site:** https://typingscoretest.com
-**GitHub repo:** https://github.com/purvenconsulting-pixel/Typing-Score-Test
+**GitHub repo:** https://github.com/purvenconsulting-pixel/typingscoretest
 **Stack:** Next.js static export (HTML/JS/CSS) — no server-side PHP
 **Deploy pattern:** Push to GitHub → rsync to Hostinger Horizon
 
