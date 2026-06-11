@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs / runtime artifacts
+*.log
+debug.log
+rate_limits.json
+
+# Secrets — never commit
+api/config.php
